@@ -1,0 +1,158 @@
+1a) Draw a square subroutine
+
+Pen down
+Repeat 4 times
+	Move lengthofsides
+	Turn 90
+
+1b) Draw a 'grid of squares' subroutine
+
+Pen up
+Repeat gridHeight times (Loop invariant: the number of times the loop has been repeated never goes above gridHeight)
+	Repeat gridWidth times (Loop invariant: the number of times the loop has been repeated never goes above gridWidth)
+		drawSquare(theTurtle, lengthOfSide)
+		Turn 90
+		Move (lengthOfSide + distanceBetweenSquares)
+		Turn 270
+	Turn 270
+	Move ((lengthOfSide + distanceBetweenSquares) * gridWidth)
+	Turn 90
+	Turn 180
+	Move (lengthOfSide + distanceBetweenSquares)
+	Turn 180
+Move ((lengthOfSide + distanceBetweenSquares) * gridHeight)
+
+1c) threeSquareGrid subroutine
+drawSquareGrid made of 4 large squares
+move 2
+turn 90
+move 2
+turn 270
+drawSquareGrid made of 16 medium squares
+move 6
+turn 90
+move 6
+turn 270
+drawSquareGrid made of 64 small squares
+turn 180
+move 8
+turn 90
+move 8
+turn 90
+
+2) Imperial conversions
+get number of inches from user
+if inches <= 0
+	print error
+	return
+
+foot = 12 inches
+yard = 3 * foot
+chain = 22 * yard
+furlong = 10 * chain
+mile = 8 * furlong
+remainder = inches
+
+numberFoot = 0
+numberYard = 0
+numberChain = 0
+numberFurlong = 0
+numberMile = 0
+
+if mile < remainder and remainder != 0
+	numberMile = floor(remainder / mile)
+	subtract (numberMile * mile) from remainder
+
+if furlong < remainder and remainder != 0
+	numberFurlong = floor(remainder / furlong)
+	subtract (numberFurlong * furlong) from remainder
+
+if chain < remainder and remainder != 0
+	numberChain = floor(remainder / chain)
+	subtract (numberChain * chain) from remainder
+
+if yard < remainder and remainder != 0
+	numberYard = floor(remainder / yard)
+	subtract (numberYard * yard) from remainder
+
+if foot < remainder and remainder != 0
+	numberFoot = floor(remainder / foot)
+	subtract (numberFoot * foot) from remainder
+
+printed = false
+
+print(inches + " inches = ")
+
+if numberMile > 0 and numberMile != 1
+	print (numberMile + " miles"
+	printed = true
+else if numberMile equals 1
+	print(numberMile + " mile")
+	printed = true
+
+if numberFurlong > 0 and numberFurlong is not equal to 1
+	if not printed
+		printed = true
+	else
+		print(", ")
+	print(numberFurlong + " furlongs"
+else if numberFurlong equals 1
+	if not printed
+		printed = true
+	else
+		print(", ")
+	print(numberFurlong + " furlong")
+
+if numberChain > 0 and numberChain is not equal to 1
+	if not printed
+		printed = true
+	else
+		print(", ")
+	print(numberChain + " chains"
+else if numberChain equals 1
+	if not printed
+		printed = true
+	else
+		print(", ")
+	print(numberChain + " chain")
+
+if numberYard > 0 and numberYard is not equal to 1
+	if not printed
+		printed = true
+	else
+		print(", ")
+	print(numberYard + " yards"
+else if numberYard equals 1
+	if not printed
+		printed = true
+	else
+		print(", ")
+	print(numberYard + " yard")
+
+if numberFoot > 0 and numberFoot is not equal to 1
+	if not printed
+		printed = true
+	else
+		print(", ")
+	print(numberFoot + " feet"
+else if numberFoot equals 1
+	if not printed
+		printed = true
+	else
+		print(", ")
+	print(numberFoot + " foot")
+
+if remainder > 0 and remainder is not equal to 1
+	if not printed
+		printed = true
+	else
+		print(", ")
+	print(remainder + " inches"
+else if remainder equals 1
+	if not printed
+		printed = true
+	else
+		print(", ")
+	print(remainder + " inch")
+
+print full stop
